@@ -1,0 +1,90 @@
+@media only screen and (max-width: 750px) {
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-bar;
+        padding: 15px 15vw 0 15vw;
+        flex-flow: column wrap;
+        font-family: $font-default;
+        height: fit-content;
+        width: 100%;
+        font-size: 1rem;
+        .menu__logo {
+            text-decoration: none;
+            color: $color-text;
+            img {
+                height: 25px;
+            }
+        }
+        .menu__links {
+            display: inline-flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            .menu__link {
+                padding: 0 10px 0 10px;
+                transition: background-color 0.1s;
+                background-color: $color-bar;
+                border-radius: 15px;
+                margin: 0.4rem 0.2rem;
+                &:hover {
+                    background-color: $color-bar-hover;
+                }
+                a {
+                    text-decoration: none;
+                    color: $color-text;
+                }
+            }
+            .menu__link--hide {
+                display: none;
+            }
+        }
+        .menu__links--dropdown {
+            background-color: $color-bar;
+            width: fit-content;
+        }
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .menu {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: $color-bar;
+        padding: 15px 15vw 0 15vw;
+        flex-flow: row wrap;
+        font-family: $font-default;
+        height: fit-content;
+        font-size: 1rem;
+        .menu__logo {
+            text-decoration: none;
+            color: $color-text;
+            img {
+                height: 25px;
+            }
+        }
+        .menu__links {
+            display: inline-flex;
+            flex-flow: row wrap;
+            .menu__link {
+                padding: 0 10px 0 10px;
+                transition: background-color 0.1s;
+                background-color: $color-bar;
+                border-radius: 15px;
+                &:hover {
+                    background-color: $color-bar-hover;
+                }
+                a {
+                    text-decoration: none;
+                    color: $color-text;
+                }
+            }
+        }
+        .menu__links--dropdown {
+            background-color: $color-bar;
+            width: fit-content;
+        }
+    }
+}

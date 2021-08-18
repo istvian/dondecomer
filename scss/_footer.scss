@@ -1,0 +1,45 @@
+.footer {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: $color-bar;
+    font-family: $font-default;
+    color: $color-text;
+    padding: 5vh 5vw 2vh 5vw;
+    .footer__title {
+        text-align: center;
+        padding: 1vh 0;
+        font-size: 1.2rem;
+    }
+    .footer__links {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        .footer__link {
+            padding: 15px;
+            a {
+                img {
+                    height: 30px;
+                    transition: transform 0.2s;
+                    &:hover {
+                        transform: scale(120%);
+                    }
+                }
+            }
+        }
+    }
+    .footer__rights {
+        h5 {
+            text-align: center;
+            font-size: 1rem;
+        }
+    }
+}
+
+@each $red,
+$color in $socials {
+    .footer__link-#{$red} {
+        background-color: $color;
+        border-radius: 25px;
+    }
+}

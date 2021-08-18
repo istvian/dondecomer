@@ -1,0 +1,40 @@
+@import "variables";
+@import "reset";
+// BLOQUE 1 HEADER
+@import "header";
+// BLOQUE 2 FOOTER
+@import "footer";
+//BLOQUE SECTIONS, CONTIENE HERO, 
+@import "sections";
+// BLOQUE 4 BODY
+// EN VARIABLES OCUPE UN IF PARA CAMBIAR LA PALETA DE COLORES
+// EN SECTIONS >.content> .content__number OCUPE UN FOR PARA ENUMERAR LOS TOP 10 
+// EN FOOTER HAY UN MAPS Y UN EACH
+// 
+// 
+.body {
+    font-size: 10px;
+}
+
+@media only screen and (max-width: 750px) {
+    .body {
+        background-color: $color-bg;
+        .body__video {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .body {
+        background-color: $color-bg;
+        .body__video {
+            position: absolute;
+            top: 15px;
+            z-index: -20;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+    }
+}

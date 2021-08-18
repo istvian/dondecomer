@@ -1,0 +1,333 @@
+// MIXINS
+@mixin btn {
+    border: solid 2px $color-btn-hover;
+    margin: auto;
+    background-color: $color-btn;
+    text-align: center;
+    width: max-content;
+    border-radius: 5px;
+    color: $color-text;
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+    &:hover {
+        background-color: $color-btn-hover;
+    }
+}
+
+@mixin content-card {
+    margin: 2vh 2vw 2vh 2vw;
+    border-radius: 20px;
+    padding: 5vh 2vw 10vh 2vw;
+    background-color: $color-transparent;
+    font-family: $font-default;
+    display: flex;
+    flex-flow: column wrap;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+@mixin title {
+    font-size: 3rem;
+    text-align: center;
+    color: $color-text;
+    padding: 1rem;
+}
+
+@mixin subtitle {
+    font-size: 2.5rem;
+    text-align: center;
+    color: $color-text;
+    padding: 15px;
+}
+
+@mixin p ($color) {
+    text-align: justify;
+    padding: 1rem;
+    font-family: $font-text;
+    grid-area: p;
+    color: $color;
+    font-size: 1rem;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+// PRESENTACION EN INDEX BLOQUE HERO
+.hero {
+    @include content-card;
+    .hero__title {
+        @include title;
+    }
+    .hero__subtitle {
+        @include subtitle;
+    }
+    .hero__btn {
+        @include btn;
+    }
+    .hero__slogan {
+        color: $color-text;
+    }
+}
+
+.hero * {
+    margin: 3vh 0 3vh 0;
+}
+
+// BLOQUE SECTION
+.section {
+    @include content-card;
+    .section__title {
+        @include title;
+    }
+    .section__flex {
+        @include flex-row;
+    }
+}
+
+// BLOQUE CONTENT (CADA LOCAL)
+.content {
+    background: $color-bg-white;
+    border-radius: 5px;
+    border: solid 1px black;
+    display: grid;
+    padding: 0.5rem;
+    margin: 1rem;
+    max-width: 30rem;
+    width: 100%;
+    height: fit-content;
+    grid-template-areas: "img title title" "img p p" "features features link";
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr 3fr 2fr;
+    font-size: 1rem;
+    @for $i from 1 through 10 {
+        .content__number-#{$i} {
+            position: relative;
+            top: -30px;
+            left: -30px;
+            border-radius: 5px;
+            height: 3rem;
+            width: 4rem;
+            background: $color-btn;
+            text-align: center;
+            grid-area: img;
+            color: $color-text;
+            font-family: $font-text;
+            font-size: 2rem;
+            &::before {
+                content: "#"+$i;
+            }
+        }
+    }
+    // .content__number {
+    //     position: relative;
+    //     top: -30px;
+    //     left: -30px;
+    //     border-radius: 5px;
+    //     height: 3rem;
+    //     width: 4rem;
+    //     background: $color-btn;
+    //     text-align: center;
+    //     grid-area: img;
+    //     color: $color-text;
+    //     font-family: $font-text;
+    //     font-size: 2rem;
+    // }
+    .content__img {
+        grid-area: img;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        object-fit: cover;
+    }
+    .content__title {
+        padding: 1rem;
+        text-align: center;
+        font-family: $font-text;
+        grid-area: title;
+    }
+    .content__p {
+        @include p($color-text-black);
+    }
+    .content__features {
+        display: flex;
+        flex-flow: column wrap;
+        grid-area: features;
+        margin: auto;
+        background: $color-transparent;
+        border-radius: 5px;
+        font-size: 1rem;
+        .content__feature {
+            padding: 0.3rem;
+            list-style: circle;
+            text-align: start;
+        }
+    }
+    .content__link {
+        @include btn
+    }
+}
+
+// BLOQUE ARTICLE
+.article {
+    .article__title {
+        @include subtitle;
+    }
+    .article__p {
+        @include p($color-text);
+    }
+    .article__img {
+        margin: 5vh 5vw 5vh 5vw;
+        width: 80%;
+        margin: auto;
+        object-fit: cover;
+    }
+}
+
+.form {
+    margin: 3vh 2vw 3vh 2vw;
+    padding: 5vh 5vw 10vh 5vw;
+    font-family: $font-default;
+    text-align: center;
+    background: $color-bg;
+    border-radius: 5px;
+    width: 95%;
+    max-width: 800px;
+    .form__title {
+        @include subtitle;
+    }
+    .form__item {
+        .form__label {
+            display: inline;
+            color: white;
+            display: block;
+            text-align: center;
+            font-family: $font-text;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        .form__control {
+            width: 100%;
+            display: block;
+            margin: auto;
+            border-radius: 5px;
+            border: solid $color-bg-white 1px;
+            background: $color-transparent;
+            color: $color-text;
+            font-family: $font-text;
+            font-size: 1rem;
+            padding: 1rem;
+            text-align: center;
+            &::placeholder {
+                text-align: center;
+                font-family: $font-text;
+                font-size: 1rem;
+            }
+        }
+        .form__select {
+            background: $color-transparent;
+            border: solid $color-bg-white 1px;
+            color: $color-text;
+            text-align: center;
+            width: max-content;
+            font-family: $font-default;
+        }
+        .form__check {
+            margin-bottom: 2rem;
+        }
+        .form__btn {
+            @include btn
+        }
+    }
+}
+
+.review {
+    @include content-card();
+    background: $color-bg;
+    display: grid;
+    grid-template-areas: "title title title" "subtitle subtitle subtitle" "p p p" "img img feature" "link link link";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2rem 2rem 1fr 15rem 5rem;
+    height: fit-content;
+    padding: 3vh 2vw 3vh 2vw;
+    color: white;
+    max-width: 900px;
+    .review__img {
+        grid-area: img;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        object-fit: cover;
+    }
+    .review__title {
+        grid-area: title;
+        color: $color-text;
+    }
+    .review__subtitle {
+        color: $color-text;
+        grid-area: subtitle;
+    }
+    .review__p {
+        @include p($color-text);
+        grid-area: p;
+    }
+    .review__features {
+        display: flex;
+        flex-flow: column wrap;
+        margin: auto;
+        background: $color-transparent;
+        border-radius: 5px;
+        grid-area: feature;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        font-size: 1rem;
+    }
+    .review__feature {
+        padding: 0.3rem;
+        list-style: circle;
+        text-align: start;
+    }
+    .review__link {
+        @include btn();
+        grid-area: link;
+        margin: 1rem;
+    }
+}
+
+.autor {
+    @include content-card();
+    background: $color-bg;
+    display: grid;
+    grid-template-areas: "img title" "img p" "img p";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 15% 1fr;
+    height: 200px;
+    max-height: 100%;
+    height: fit-content;
+    padding: 3vh 2vw 3vh 2vw;
+    color: white;
+    max-width: 900px;
+    .autor__img {
+        grid-area: img;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        object-fit: scale-down;
+    }
+    .autor__title {
+        grid-area: title;
+        color: $color-text;
+    }
+    .autor__info {
+        @include p($color-text);
+        grid-area: p;
+    }
+}

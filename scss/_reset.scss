@@ -1,0 +1,23 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+    // font-family: "Staatliches";
+}
+
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    overflow-anchor: none;
+}
+
+select {
+    background: $color-bg-white;
+    border: none;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+}

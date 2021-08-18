@@ -1,0 +1,44 @@
+$color-bg: hsl(0, 0%, 9%);
+$color-bg-white:#fff;
+$color-bar-hover:rgba(173, 173, 173, 0.438);
+$color-transparent:rgba(173, 173, 173, 0.151);
+$color-bar:rgb(0, 0, 0);
+$color-btn: #fda33b;
+$color-btn-hover:hsl(32, 98%, 70%);
+$color-text: #fff;
+$color-text-black:#000;
+$color-text-hover:hsl(32, 98%, 70%);
+$font-default:'Staatliches';
+$font-text:'Concert One';
+$color-mode:"dark";
+$socials:( facebook: #198FF0, twitter:#1A91DA, instagram: #B0338A, whatsapp: #44C052, );
+// NO SE ME OCURRIA OTRA MANERA DE PONER EN PRACTICA EL IF
+@if $color-mode=="dark" {
+    $color-bg: hsl(0, 0%, 9%);
+    $color-bg-white: #fff;
+    $color-bar-hover: rgba(173, 173, 173, 0.438);
+    $color-transparent: rgba(173, 173, 173, 0.151);
+    $color-bar: rgb(0, 0, 0);
+    $color-btn: #fda33b;
+    $color-btn-hover: hsl(32, 98%, 70%);
+    $color-text: #fff;
+    $color-text-black: #000;
+    $color-text-hover: hsl(32, 98%, 70%);
+    $font-default: 'Staatliches';
+    $font-text: 'Concert One';
+}
+
+@else if $color-mode=="white" {
+    $color-bg: #FFF;
+    $color-bg-white: rgb(192, 192, 192);
+    $color-bar: #ffa742;
+    $color-bar-hover: hsl(32, 100%, 73%);
+    $color-btn: #fda33b;
+    $color-btn-hover: hsl(32, 98%, 70%);
+    $color-text: #000;
+    $color-text-black: #FFF;
+    $color-text-hover: hsl(32, 98%, 70%);
+    $font-default: 'Staatliches';
+    $font-text: 'Concert One';
+    $color-transparent: rgba(209, 209, 209, 0.452);
+}
